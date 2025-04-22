@@ -41,8 +41,10 @@
         <h1>Prediction Results</h1>
         <u1>
             {% for label, score in result %}
-             <li class="{% if loop.first %}top-prediction{% endif %}">
-               {{label}}-{{(score*100)|round(2)}}%
+            {% if (score * 100) | round(2) > 50 %}
+            <li >
+                <strong>{{label}} : {{(score*100)|round(2)}}%</strong>
+                {% endif %}
              </li>  
             {% endfor %}
             </u1>

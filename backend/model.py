@@ -1,6 +1,7 @@
 import torch
 from torchvision import transforms
 from torchvision.models import resnet50
+from torchvision.models import ResNet50_Weights
 from PIL import Image
 
 # Labels for the thorax diseases (14 classes)
@@ -10,7 +11,7 @@ LABELS = ["Atelectasis", "Cardiomegaly", "Effusion", "Infiltration", "Mass", "No
 
 # Step 1: Load the custom-trained ResNet50 model
 def load_model():
-    model = resnet50(pretrained=False)  # Don't load ImageNet weights
+    model = resnet50(weights=ResNet50_Weights.DEFAULT)  # Don't load ImageNet weights
     model.fc = torch.nn.Linear(model.fc.in_features, len(LABELS))  # Adjust output layer
 
      # Load your custom-trained model (resnet50.pth should be saved in the backend directory)
