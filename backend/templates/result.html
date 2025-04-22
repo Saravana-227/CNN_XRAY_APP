@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Results</title>
+    <style>
+        body {
+            background: url('/static/xray-bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            width: 500px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .result {
+            text-align: left;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #00e676;
+        }
+    </style>
+</head>
+<body>
+    <div class="result_container">
+        <h1>Prediction Results</h1>
+        <u1>
+            {% for label, score in result %}
+             <li class="{% if loop.first %}top-prediction{% endif %}">
+               {{label}}-{{(score*100)|round(2)}}%
+             </li>  
+            {% endfor %}
+            </u1>
+    </div>
+</body>
+</html>
