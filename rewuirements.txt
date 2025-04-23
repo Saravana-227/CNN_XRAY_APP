@@ -33,6 +33,7 @@ gradio==5.25.2
 gradio_client==1.8.0
 groovy==0.1.2
 grpcio==1.70.0
+gunicorn==23.0.0
 h11==0.14.0
 h5py==3.12.1
 httpcore==1.0.8
